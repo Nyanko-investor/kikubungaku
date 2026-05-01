@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>聴く文学 | 2000冊級の文学を、オフラインで持ち歩く</title>
+  <meta
+    name="description"
+    content="聴く文学は、2000冊級の名作をオフラインで持ち歩ける買い切り型の文学アプリです。読みの自然さにもこだわり、作品の世界に入りやすい再生体験を目指しています。"
+  />
+  <style>
+    :root {
+      --bg: #f6f0e7;
+      --card: #fffaf4;
+      --text: #2e261f;
+      --muted: #6e6258;
+      --accent: #6b4f3a;
+      --accent-2: #b08b62;
+      --line: #dfd2c3;
+      --shadow: 0 10px 30px rgba(40, 30, 20, 0.08);
+      --radius: 20px;
+      --max: 1080px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
+        "Yu Gothic UI", "Yu Gothic", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+      border-radius: 16px;
+    }
+
+    .wrap {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 24px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-badge {
+      width: 36px;
+      height: 36px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+    }
+
+    .hero {
+      padding: 40px 0 64px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+      background: rgba(255,255,255,0.45);
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: clamp(32px, 6vw, 58px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .lead {
+      margin: 0 0 24px;
+      font-size: clamp(16px, 2.3vw, 19px);
+      color: var(--muted);
+      max-width: 38em;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: white;
+      box-shadow: var(--shadow);
+      font-weight: 700;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .subnote {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, #fffdf9, #f3e8da);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    section {
+      padding: 28px 0 48px;
+    }
+
+    .section-title {
+      margin: 0 0 8px;
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.25;
+    }
+
+    .section-desc {
+      margin: 0 0 24px;
+      color: var(--muted);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .screens {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .screen-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .screen-card p {
+      margin: 12px 4px 4px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq details {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .faq summary {
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .faq p {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .cta {
+      text-align: center;
+      padding: 56px 0 80px;
+    }
+
+    footer {
+      padding: 24px 0 40px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .hero,
+      .grid-3,
+      .grid-2,
+      .screens {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="brand">
+        <div class="brand-badge">聴</div>
+        <span>聴く文学</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap hero">
+      <div>
+        <div class="eyebrow">2000冊級の名作を持ち歩ける文学アプリ</div>
+        <h1>2000冊級の文学を、オフラインで持ち歩く。</h1>
+        <p class="lead">
+          聴く文学は、名作をオフラインで楽しめる買い切り型の文学アプリです。
+          月額課金ではなく、一度手に入れた作品を自分のペースで長く楽しめます。
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="#download">ストアを見る</a>
+          <a class="btn" href="#features">特徴を見る</a>
+        </div>
+
+        <p class="subnote">
+          既存の読み上げ朗読アプリで起こりがちな不自然な固有名詞読みを減らし、
+          作品の世界に入りやすい再生体験を目指しています。
+        </p>
+      </div>
+
+      <div class="hero-card">
+        <img
+          src="https://placehold.co/720x900?text=%E8%81%B4%E3%81%8F%E6%96%87%E5%AD%A6+App+Preview"
+          alt="聴く文学アプリのプレビュー"
+        />
+      </div>
+    </section>
+
+    <section class="wrap" id="features">
+      <h2 class="section-title">聴く文学の特徴</h2>
+      <p class="section-desc">
+        文学全集のような量、オフラインで使える手軽さ、買い切りの気楽さ。
+        そして、作品の世界を壊しにくい読みの自然さを大切にしています。
+      </p>
+
+      <div class="grid-3">
+        <div class="card">
+          <h3>2000冊級の大量収録</h3>
+          <p>
+            一冊ずつ探すのではなく、名作をまとめて持ち歩けます。
+            文学全集のような感覚で楽しめるのが魅力です。
+          </p>
+        </div>
+        <div class="card">
+          <h3>オフライン再生</h3>
+          <p>
+            通信がない場所でも、そのまま作品を再生できます。
+            通勤中や移動中、旅行先でも通信量を気にせず文学に浸れます。
+          </p>
+        </div>
+        <div class="card">
+          <h3>買い切りで長く使える</h3>
+          <p>
+            月額課金ではなく買い切り型。
+            一度手に入れた作品を、自分のペースで何度でも楽しめます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="section-title">既存の読み上げとの違い</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>作品の世界を壊しにくい読み</h3>
+          <p>
+            ただ文章を機械的に読むだけでは、文学は崩れてしまいます。
+            聴く文学は、作品に入りやすい自然な読みを目指しています。
+          </p>
+        </div>
+        <div class="card">
+          <h3>固有名詞の違和感を減らす</h3>
+          <p>
+            既存の読み上げ朗読アプリでは、『坊っちゃん』の「清」を
+            「きよし」「せい」などと不自然に読んでしまうことがあります。
+            聴く文学は、こうした違和感を減らし、「きよ」と読ませることを目指します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="section-title">アプリ画面</h2>
+      <p class="section-desc">
+        本棚、作品ページ、再生画面。大量収録でも迷いにくく、作品の世界へ入りやすい設計を目指しました。
+      </p>
+
+      <div class="screens">
+        <div class="screen-card">
+          <img
+            src="https://placehold.co/520x1000?text=%E6%9C%AC%E6%A3%9A%E7%94%BB%E9%9D%A2"
+            alt="本棚画面"
+          />
+          <p>大量の作品から選びやすい本棚画面</p>
+        </div>
+        <div class="screen-card">
+          <img
+            src="https://placehold.co/520x1000?text=%E4%BD%9C%E5%93%81%E8%A9%B3%E7%B4%B0"
+            alt="作品詳細画面"
+          />
+          <p>作品紹介と再生導線をわかりやすく</p>
+        </div>
+        <div class="screen-card">
+          <img
+            src="https://placehold.co/520x1000?text=%E5%86%8D%E7%94%9F%E7%94%BB%E9%9D%A2"
+            alt="再生画面"
+          />
+          <p>静かに作品へ入れる再生体験</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="section-title">おまけ機能</h2>
+      <div class="card">
+        <h3>スマホ内の音楽をBGMにできる</h3>
+        <p>
+          おまけ機能として、スマホ内の音楽をBGMにしながら作品を楽しめます。
+          自分だけの雰囲気で、文学に入っていけます。
+        </p>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="section-title">こんな方に向いています</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>名作をまとめて持ち歩きたい方</h3>
+          <p>文学全集のように、大量の名作をひとつのアプリで楽しみたい方に。</p>
+        </div>
+        <div class="card">
+          <h3>オフラインで使いたい方</h3>
+          <p>通信量や電波を気にせず、いつでもどこでも文学を楽しみたい方に。</p>
+        </div>
+        <div class="card">
+          <h3>買い切りで持ちたい方</h3>
+          <p>サブスクではなく、手元に残るかたちで作品を持ちたい方に。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="download">
+      <h2 class="section-title">まずはストアでご覧ください</h2>
+      <p class="section-desc">
+        2000冊級の文学を、オフラインで。買い切りで、手元に残る文学を。
+      </p>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>App Store</h3>
+          <p>iPhone / iPad で聴く文学を楽しめます。</p>
+        </div>
+        <div class="card">
+          <h3>Google Play</h3>
+          <p>Android でも同じ世界観で文学を持ち歩けます。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap">
+      <h2 class="section-title">よくある質問</h2>
+      <div class="faq">
+        <details>
+          <summary>どんな作品が入っていますか？</summary>
+          <p>青空文庫を中心に、名作をまとめて楽しめるラインナップを順次整えていく予定です。</p>
+        </details>
+        <details>
+          <summary>オフラインで使えますか？</summary>
+          <p>はい。オフラインで再生できることを大きな特徴のひとつとしています。</p>
+        </details>
+        <details>
+          <summary>月額課金ですか？</summary>
+          <p>いいえ。買い切りで長く楽しめる形を想定しています。</p>
+        </details>
+        <details>
+          <summary>既存の読み上げアプリと何が違いますか？</summary>
+          <p>大量収録・オフライン再生・買い切りに加え、作品の世界に入りやすい自然な読みを目指している点です。</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="wrap cta">
+      <h2 class="section-title">文学全集を、聴けるかたちで持ち歩く。</h2>
+      <p class="section-desc">
+        名作をもっと自由に、もっと身近に。まずはストアからご覧ください。
+      </p>
+
+      <div class="actions" style="justify-content:center;">
+        <a class="btn primary" href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer">App Storeで見る</a>
+        <a class="btn" href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">Google Playで見る</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © KB Works
+    </div>
+  </footer>
+</body>
+</html>
