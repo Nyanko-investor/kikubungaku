@@ -34,25 +34,15 @@
       line-height: 1.7;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-      border-radius: 16px;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; border-radius: 16px; }
 
     .wrap {
       width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
     }
 
-    header {
-      padding: 24px 0;
-    }
+    header { padding: 24px 0; }
 
     .brand {
       display: inline-flex;
@@ -63,14 +53,11 @@
     }
 
     .brand-badge {
-      width: 36px;
-      height: 36px;
+      width: 36px; height: 36px;
       border-radius: 999px;
-      display: grid;
-      place-items: center;
+      display: grid; place-items: center;
       background: var(--accent);
-      color: white;
-      font-size: 14px;
+      color: white; font-size: 14px;
     }
 
     .hero {
@@ -107,18 +94,13 @@
     }
 
     .actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
+      display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px;
     }
 
     .btn {
       display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
+      align-items: center; justify-content: center;
+      min-height: 48px; padding: 0 18px;
       border-radius: 999px;
       border: 1px solid var(--line);
       background: white;
@@ -127,27 +109,19 @@
     }
 
     .btn.primary {
-      background: var(--accent);
-      color: white;
-      border-color: var(--accent);
+      background: var(--accent); color: white; border-color: var(--accent);
     }
 
-    .subnote {
-      font-size: 14px;
-      color: var(--muted);
-    }
+    .subnote { font-size: 14px; color: var(--muted); }
 
     .hero-card {
       background: linear-gradient(180deg, #fffdf9, #f3e8da);
       border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 20px;
+      border-radius: 28px; padding: 20px;
       box-shadow: var(--shadow);
     }
 
-    section {
-      padding: 28px 0 44px;
-    }
+    section { padding: 28px 0 44px; }
 
     .section-title {
       margin: 0 0 8px;
@@ -155,18 +129,9 @@
       line-height: 1.25;
     }
 
-    .section-desc {
-      margin: 0 0 24px;
-      color: var(--muted);
-    }
+    .section-desc { margin: 0 0 24px; color: var(--muted); }
 
-    .grid-2,
-    .grid-3,
-    .grid-4 {
-      display: grid;
-      gap: 18px;
-    }
-
+    .grid-2, .grid-3, .grid-4 { display: grid; gap: 18px; }
     .grid-2 { grid-template-columns: repeat(2, 1fr); }
     .grid-3 { grid-template-columns: repeat(3, 1fr); }
     .grid-4 { grid-template-columns: repeat(4, 1fr); }
@@ -179,99 +144,60 @@
       box-shadow: var(--shadow);
     }
 
-    .card.strong {
-      background: var(--card-strong);
-    }
+    .card.strong { background: var(--card-strong); }
 
-    .card h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      line-height: 1.35;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
+    .card h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.35; }
+    .card p { margin: 0; color: var(--muted); font-size: 15px; }
 
     .mini-metrics {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 20px;
+      gap: 12px; margin-top: 20px;
     }
 
     .metric {
       background: white;
       border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 14px 12px;
+      border-radius: 16px; padding: 14px 12px;
       box-shadow: var(--shadow);
     }
 
     .metric .num {
-      font-size: 26px;
-      font-weight: 800;
-      line-height: 1.1;
-      margin-bottom: 4px;
+      font-size: 26px; font-weight: 800;
+      line-height: 1.1; margin-bottom: 4px;
     }
 
-    .metric .label {
-      font-size: 13px;
-      color: var(--muted);
-    }
+    .metric .label { font-size: 13px; color: var(--muted); }
 
     .screens {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
     }
 
     .screen-card {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      padding: 14px;
-      box-shadow: var(--shadow);
+      background: white; border: 1px solid var(--line);
+      border-radius: 22px; padding: 14px; box-shadow: var(--shadow);
     }
 
-    .screen-card p {
-      margin: 12px 4px 4px;
-      font-size: 14px;
-      color: var(--muted);
-    }
+    .screen-card p { margin: 12px 4px 4px; font-size: 14px; color: var(--muted); }
 
     .author-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px 18px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 10px 18px; margin: 0; padding: 0; list-style: none;
     }
 
     .author-list li {
-      padding: 10px 12px;
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      font-size: 14px;
-      box-shadow: var(--shadow);
+      padding: 10px 12px; background: white;
+      border: 1px solid var(--line); border-radius: 14px;
+      font-size: 14px; box-shadow: var(--shadow);
     }
 
     .pricing-wrap {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 18px;
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 18px;
     }
 
     .price-box {
-      padding: 22px;
-      border-radius: 22px;
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-      background: white;
+      padding: 22px; border-radius: 22px;
+      border: 1px solid var(--line); box-shadow: var(--shadow); background: white;
     }
 
     .price-box.featured {
@@ -279,116 +205,66 @@
     }
 
     .price {
-      font-size: 42px;
-      font-weight: 800;
-      line-height: 1;
-      margin: 8px 0 12px;
+      font-size: 42px; font-weight: 800; line-height: 1; margin: 8px 0 12px;
     }
 
-    .price-note {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
+    .price-note { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
 
-    .bullet {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-size: 15px;
-    }
-
-    .bullet li + li {
-      margin-top: 6px;
-    }
+    .bullet { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px; }
+    .bullet li + li { margin-top: 6px; }
 
     .flow {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
     }
 
     .flow .step {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      box-shadow: var(--shadow);
+      background: white; border: 1px solid var(--line);
+      border-radius: 18px; padding: 18px; box-shadow: var(--shadow);
     }
 
     .step .step-no {
-      display: inline-block;
-      margin-bottom: 10px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--accent);
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 4px 8px;
-      background: rgba(255,255,255,0.6);
+      display: inline-block; margin-bottom: 10px;
+      font-size: 12px; font-weight: 700; color: var(--accent);
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 4px 8px; background: rgba(255,255,255,0.6);
     }
 
-    .step h4 {
-      margin: 0 0 6px;
-      font-size: 16px;
-    }
+    .step h4 { margin: 0 0 6px; font-size: 16px; }
+    .step p { margin: 0; color: var(--muted); font-size: 14px; }
 
-    .step p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .faq {
-      display: grid;
-      gap: 12px;
-    }
+    .faq { display: grid; gap: 12px; }
 
     .faq details {
-      background: var(--card);
+      background: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; padding: 16px 18px; box-shadow: var(--shadow);
+    }
+
+    .faq summary { cursor: pointer; font-weight: 700; }
+    .faq p { margin: 10px 0 0; color: var(--muted); }
+
+    .cta { text-align: center; padding: 56px 0 80px; }
+
+    footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; }
+
+    /* 免責ボックス */
+    .disclaimer {
+      background: rgba(255,255,255,0.5);
       border: 1px solid var(--line);
       border-radius: 16px;
-      padding: 16px 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .faq summary {
-      cursor: pointer;
-      font-weight: 700;
-    }
-
-    .faq p {
-      margin: 10px 0 0;
-      color: var(--muted);
-    }
-
-    .cta {
-      text-align: center;
-      padding: 56px 0 80px;
-    }
-
-    footer {
-      padding: 24px 0 40px;
-      color: var(--muted);
+      padding: 18px 22px;
+      margin-top: 20px;
       font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
     }
 
     @media (max-width: 960px) {
-      .hero,
-      .grid-2,
-      .grid-3,
-      .grid-4,
-      .screens,
-      .pricing-wrap,
-      .flow,
-      .mini-metrics,
-      .author-list {
+      .hero, .grid-2, .grid-3, .grid-4,
+      .screens, .pricing-wrap, .flow,
+      .mini-metrics, .author-list {
         grid-template-columns: 1fr;
       }
-
-      .hero {
-        padding-top: 20px;
-      }
+      .hero { padding-top: 20px; }
     }
   </style>
 </head>
@@ -403,14 +279,15 @@
   </header>
 
   <main>
+    <!-- ヒーロー -->
     <section class="wrap hero">
       <div>
-        <div class="eyebrow">31作家・約2000作品を収録した買い切り型文学アプリ</div>
-        <h1>2000冊級の文学を、<br>オフラインで持ち歩く。</h1>
+        <div class="eyebrow">31作家・約2000作品収録の買い切り型文学アプリ</div>
+        <h1>名作2000冊分を、<br>ポケットに入れて歩く。</h1>
         <p class="lead">
-          聴く文学は、31作家・約2000作品を収録した買い切り型の文学アプリです。
-          名作をまとめて持ち歩けて、通信がない場所でも再生できます。
-          月額課金ではなく、一度手に入れた作品を自分のペースで長く楽しめます。
+          インストールするだけで、31作家・約2000作品がすべて端末に入ります。
+          通信不要・広告なし。月額課金もありません。
+          通勤中に、寝る前に、旅先で。一度手に入れたら、どこでも、いつまでも。
         </p>
 
         <div class="actions">
@@ -419,8 +296,8 @@
         </div>
 
         <p class="subnote">
-          既存の読み上げ朗読アプリで起こりがちな不自然な固有名詞読みを減らし、
-          名作の世界に入りやすい再生体験を目指しています。
+          ※ 本アプリはお使いのスマートフォン標準の読み上げ機能（TTS）を使用しています。
+          文脈によって読み方が変わる語句を中心に、一部読み間違いが発生する場合があります。
         </p>
 
         <div class="mini-metrics">
@@ -452,64 +329,103 @@
     </section>
 
     <section class="wrap">
-      <h2 class="section-title">聴く文学の特徴</h2>
+      <h2 class="section-title">聴く文学が選ばれる5つの理由</h2>
       <p class="section-desc">
-        大量収録、オフライン再生、買い切り、そして作品の世界に入りやすい自然な読み。
-        「名作を聴く」体験を、ひとつのアプリにまとめました。
+        大量収録・完全オフライン・買い切り・誤読対策・睡眠導入。
+        「名作を聴く」という体験に、本気で向き合いました。
       </p>
 
       <div class="grid-4">
         <div class="card">
-          <h3>31作家・約2000作品</h3>
-          <p>名作を一冊ずつ探すのではなく、文学全集のようにまとめて持ち歩けます。</p>
+          <h3>インストールで全作品入り</h3>
+          <p>作品を一冊ずつ探してダウンロードする手間はありません。入れた瞬間から、31作家・約2000作品がすべて手元にあります。</p>
         </div>
         <div class="card">
           <h3>完全オフライン対応</h3>
-          <p>通信がない場所でも再生できます。移動中や旅行先でも気軽に文学を楽しめます。</p>
+          <p>通信が不要なので、地下鉄・機内・山の中でも再生できます。データ通信量もかかりません。</p>
         </div>
         <div class="card">
-          <h3>買い切りで広告なし</h3>
-          <p>月額課金ではなく買い切り型。広告なしで、作品の世界に集中できます。</p>
+          <h3>広告なし・買い切り</h3>
+          <p>朗読の途中で広告が入ることはありません。¥980の全作品買い切り、または¥370の作家別パックで、広告なしの読書体験をお楽しみいただけます。</p>
         </div>
         <div class="card">
-          <h3>読みの自然さに配慮</h3>
-          <p>固有名詞の不自然な読みを減らし、作品に入りやすい再生体験を目指しています。</p>
+          <h3>誤読を減らす独自エンジン</h3>
+          <p>固有名詞の一貫した読み、作家が意図したルビの正確な再現、文脈によって読み方が変わる語句への対応など、原文の意図を損なわない読み上げを実現するため、独自の読み上げ最適化システムを開発しました。</p>
+        </div>
+      </div>
+      <div class="grid-2" style="margin-top:18px;">
+        <div class="card">
+          <h3>睡眠導入にも</h3>
+          <p>穏やかな読み上げ音声をBGMと組み合わせれば、眠りにつく前のひとときにぴったりです。目を閉じたまま、名作の世界に入っていけます。</p>
+        </div>
+        <div class="card">
+          <h3>お手持ちの音楽をBGMに</h3>
+          <p>スマートフォン内の音楽をBGMとして流しながら朗読を楽しめます。自分だけの読書空間をつくれます。</p>
         </div>
       </div>
     </section>
 
+    <!-- 差別化 -->
     <section class="wrap">
-      <h2 class="section-title">既存の読み上げとの違い</h2>
+      <h2 class="section-title">既存の朗読アプリとの違い</h2>
       <div class="grid-2">
         <div class="card">
-          <h3>固有名詞の違和感を減らす</h3>
+          <h3>「清」はずっと「きよ」と読む</h3>
           <p>
-            既存の読み上げ朗読アプリでは、『坊っちゃん』の「清」を
-            「きよし」「せい」「しん」などと不自然に読んでしまうことがあります。
-            聴く文学は、こうした違和感を減らし、「きよ」と読ませることを目指します。
+            一般的な読み上げアプリでは『坊っちゃん』の「清」が、場面によって「きよ」「きよし」「せい」とバラバラに読まれることがあります。
+            聴く文学では、登場人物の名前が最後まで一貫して読まれるよう、約2000作品分の台本データを独自に整備しています。
           </p>
         </div>
         <div class="card">
-          <h3>スマホ内の音楽をBGMに</h3>
+          <h3>都度ダウンロード不要</h3>
           <p>
-            おまけ機能として、スマホ内の音楽をBGMにしながら作品を楽しめます。
-            自分だけの雰囲気で、文学の世界に入っていけます。
+            多くの朗読アプリは作品ごとにダウンロードが必要です。
+            聴く文学はインストール時にすべての作品データが端末に入るため、「聴きたいと思ったらすぐ再生できる」が実現できています。
           </p>
+        </div>
+      </div>
+
+      <div class="disclaimer">
+        <strong>【読み上げ（TTS）に関するご案内】</strong><br>
+        本アプリはお使いのスマートフォンに標準搭載されている読み上げ機能（OS標準TTS）を使用しています。
+        青空文庫のテキストをより自然な日本語で発音させるため、独自の解析システム（一部AIによるルビ推論を含む）を用いて読み上げ用の台本データを整備しています。
+        ただし、文脈によって読み方が変わる語句を中心に読み間違いが発生する場合があります。
+        人間のナレーターによる録音とは異なる点をご了承の上お楽しみください。
+        お使いの端末・OSバージョン・TTSエンジンによって、読み上げの印象が異なる場合があります。
+      </div>
+    </section>
+
+    <!-- カラオケ・目次・あらすじ -->
+    <section class="wrap">
+      <h2 class="section-title">読みながら聴ける、探しやすい</h2>
+      <div class="grid-3">
+        <div class="card">
+          <h3>カラオケ式ハイライト</h3>
+          <p>読み上げ中の箇所がリアルタイムで強調表示されます。耳で聴きながら目でも追えるので、聴き逃しても文字で確認できます。</p>
+        </div>
+        <div class="card">
+          <h3>目次・あらすじ・タグ</h3>
+          <p>各作品にはあらすじとタグを用意。「怪奇」「恋愛」「短編」などのタグで、気分に合った作品をすぐに探せます。</p>
+        </div>
+        <div class="card">
+          <h3>続きから再生</h3>
+          <p>前回聴いた位置を記憶しています。長編を少しずつ読み進めても、どこまで聴いたか迷いません。</p>
         </div>
       </div>
     </section>
 
+    <!-- ラインナップ -->
     <section class="wrap" id="lineup">
       <h2 class="section-title">ラインナップ</h2>
       <p class="section-desc">
-        有名作家を中心に31作家を収録。主要作家は全作品対応、ほかの作家も代表作を中心に楽しめます。
+        国民的な文豪から、知る人ぞ知る作家まで。31作家を収録しています。
       </p>
 
       <div class="grid-2">
         <div class="card strong">
-          <h3>Aグループ作家（全作品収録）</h3>
+          <h3>Aグループ（全作品収録・18作家）</h3>
           <p style="margin-bottom:14px;">
-            17作家の全作品を収録。作家別パック（¥370）の対象です。
+            各作家のほぼ全作品を収録。作家別パック（¥370）の対象です。
           </p>
           <ul class="author-list">
             <li>夏目漱石</li>
@@ -529,18 +445,18 @@
             <li>織田作之助</li>
             <li>林芙美子</li>
             <li>室生犀星</li>
+            <li>岡本綺堂</li>
           </ul>
         </div>
 
         <div class="card">
-          <h3>Bグループ作家（代表作中心）</h3>
+          <h3>Bグループ（代表作中心・13作家）</h3>
           <p style="margin-bottom:14px;">
-            代表作や主要作品を中心に収録。まずは有名作から気軽に楽しめます。
+            代表作・主要作品を中心に収録。まずは有名作から気軽に楽しめます。
           </p>
           <ul class="author-list">
             <li>泉鏡花</li>
             <li>小泉八雲</li>
-            <li>岡本綺堂</li>
             <li>北大路魯山人</li>
             <li>海野十三</li>
             <li>福沢諭吉</li>
@@ -557,34 +473,35 @@
       </div>
     </section>
 
+    <!-- 無料でも読める -->
     <section class="wrap">
-      <h2 class="section-title">無料でも、かなり読めます</h2>
+      <h2 class="section-title">無料でも、しっかり読めます</h2>
       <p class="section-desc">
-        フリーミアム作品では約50作品をしっかり楽しめます。
-        短編や随筆は全文無料の作品も多く、長編も続きが気になるところまで試せます。
+        約50作品を無料でしっかり楽しめるようにしています。短編・随筆は全文無料の作品も多く、
+        長編も物語の核心に差し掛かるところまで試せます。
       </p>
 
       <div class="grid-3">
         <div class="card">
-          <h3>全文無料で楽しめる名作</h3>
+          <h3>全文無料の名作</h3>
           <p>
             『羅生門』『蜘蛛の糸』『走れメロス』『注文の多い料理店』『山月記』
-            『檸檬』『ごん狐』『手袋を買いに』『高瀬舟』『耳無芳一の話』
+            『檸檬』『ごん狐』『手袋を買いに』『高瀬舟』『耳なし芳一』
             『雪女』など、まずは名作をそのまま楽しめます。
           </p>
         </div>
         <div class="card">
-          <h3>長編も“気になるところまで”</h3>
+          <h3>長編も途中まで無料</h3>
           <p>
             『吾輩は猫である』『坊っちゃん』『人間失格』『銀河鉄道の夜』
-            『高野聖』『風立ちぬ』『蟹工船』などは、続きを読む前に作品世界へしっかり入れます。
+            『風立ちぬ』『蟹工船』などは、物語の核心に差し掛かるところまで無料で試せます。
           </p>
         </div>
         <div class="card">
-          <h3>立ち読み＋フリーミアムの二段構え</h3>
+          <h3>冒頭の立ち読み＋無料作品の二段構え</h3>
           <p>
-            全作品で冒頭だけ立ち読み可能。さらに、選ばれた作品は全文または中盤まで無料。
-            まずは体験してから、好きな作家や全解放へ進めます。
+            全作品で冒頭の立ち読みが可能。さらに選ばれた約50作品は全文または中盤まで無料。
+            まず体験してから、好きな作家や全解放へ進めます。
           </p>
         </div>
       </div>
@@ -600,17 +517,18 @@
         <div class="card">
           <h3>大作も入口からハマれる</h3>
           <p>
-            『源氏物語』は「桐壺」を全文無料、『三国志』は「序」をすべて読めるなど、
-            大作も入り口から世界に浸れるように設計しています。
+            『三国志』は「序」を全文無料、『宮本武蔵』は冒頭から世界に入れるなど、
+            大作も入り口から存分に試せます。
           </p>
         </div>
       </div>
     </section>
 
+    <!-- 課金設計 -->
     <section class="wrap" id="pricing">
-      <h2 class="section-title">課金設計</h2>
+      <h2 class="section-title">シンプルな課金設計</h2>
       <p class="section-desc">
-        いろいろな作家を楽しみたい人は全解放へ。好きな作家から入りたい人は作家別パックへ。
+        いろんな作家を楽しみたい人は全解放へ。好きな作家から入りたい人は作家別パックへ。
         後から差額でアップグレードもできます。
       </p>
 
@@ -618,44 +536,45 @@
         <div class="price-box featured">
           <h3>全作品解放</h3>
           <div class="price">¥980</div>
-          <div class="price-note">買い切り・31作家・約2000作品・オフライン・広告なし・永久有効</div>
+          <div class="price-note">買い切り・31作家・約2000作品・完全オフライン・広告なし・永久有効</div>
           <ul class="bullet">
             <li>いろいろな作家を幅広く楽しみたい人向け</li>
-            <li>作家別パックを複数買うより、全解放の方が割安</li>
-            <li>まず最初の本命プラン</li>
+            <li>作家別パックを複数買うよりお得</li>
+            <li>Audibleの月額料金より安く、2000作品が永久に楽しめます</li>
           </ul>
         </div>
 
         <div class="price-box">
           <h3>作家別パック</h3>
           <div class="price">¥370</div>
-          <div class="price-note">Aグループ17作家が対象・後から全解放へ差額アップグレード対応</div>
+          <div class="price-note">Aグループ18作家が対象・後から全解放へ差額アップグレード対応</div>
           <ul class="bullet">
             <li>漱石パック・太宰パック・芥川パックなど</li>
             <li>まず好きな作家から入りたい人向け</li>
-            <li>ハマったら全解放へ移行しやすい</li>
+            <li>全作品解放へは差額でいつでも移行できます</li>
           </ul>
         </div>
       </div>
     </section>
 
+    <!-- 使い始めの流れ -->
     <section class="wrap">
       <h2 class="section-title">使い始めの流れ</h2>
       <div class="flow">
         <div class="step">
           <div class="step-no">STEP 1</div>
-          <h4>無料で体験</h4>
-          <p>フリーミアム作品や立ち読みで、まずはアプリの雰囲気を試します。</p>
+          <h4>無料で体験する</h4>
+          <p>無料で試せる作品や立ち読みで、まずはアプリの読み上げと使い心地を試します。</p>
         </div>
         <div class="step">
           <div class="step-no">STEP 2</div>
-          <h4>好きな作家に入る</h4>
+          <h4>好きな作家から入る</h4>
           <p>まずは好きな作家だけ¥370で解放。漱石、太宰、芥川などから始められます。</p>
         </div>
         <div class="step">
           <div class="step-no">STEP 3</div>
-          <h4>もっと聴きたくなる</h4>
-          <p>作品を聴くうちに、別の作家や別ジャンルにも広げたくなります。</p>
+          <h4>他の作家も気になってくる</h4>
+          <p>1人の作家を読み終えると、同じ時代の別の作家や、違うジャンルも試したくなります。</p>
         </div>
         <div class="step">
           <div class="step-no">STEP 4</div>
@@ -665,10 +584,11 @@
       </div>
     </section>
 
+    <!-- アプリ画面 -->
     <section class="wrap">
       <h2 class="section-title">アプリ画面</h2>
       <p class="section-desc">
-        本棚、作品ページ、再生画面。大量収録でも迷いにくく、名作へ入りやすい導線を目指しました。
+        本棚、作品ページ、再生画面。大量収録でも迷わず、名作へすぐ入れる導線を目指しました。
       </p>
 
       <div class="screens">
@@ -677,77 +597,84 @@
             src="https://placehold.co/520x1000?text=%E6%9C%AC%E6%A3%9A%E7%94%BB%E9%9D%A2"
             alt="本棚画面"
           />
-          <p>31作家・約2000作品を一覧しやすい本棚画面</p>
+          <p>31作家・約2000作品を一覧できる本棚画面</p>
         </div>
         <div class="screen-card">
           <img
             src="https://placehold.co/520x1000?text=%E4%BD%9C%E5%93%81%E8%A9%B3%E7%B4%B0"
             alt="作品詳細画面"
           />
-          <p>作品紹介、タグ、あらすじ、立ち読み導線を整理</p>
+          <p>あらすじ・タグ・立ち読み導線を整理した作品ページ</p>
         </div>
         <div class="screen-card">
           <img
             src="https://placehold.co/520x1000?text=%E5%86%8D%E7%94%9F%E7%94%BB%E9%9D%A2"
             alt="再生画面"
           />
-          <p>オフラインでも気持ちよく使える再生体験</p>
+          <p>カラオケ式ハイライトで耳でも目でも追える再生画面</p>
         </div>
       </div>
     </section>
 
+    <!-- シリーズ展開 -->
     <section class="wrap">
-      <h2 class="section-title">将来のスピンオフ</h2>
+      <h2 class="section-title">今後のシリーズ展開</h2>
       <p class="section-desc">
-        聴く文学を母艦として、ジャンルや作品群ごとのスピンオフシリーズも展開予定です。
+        聴く文学を母艦として、ジャンル・作品群ごとのシリーズも展開予定です。
       </p>
 
       <div class="grid-2">
-        <div class="card">
+        <div class="card strong">
+          <h3>🌍 聴く世界文学（次回作・最優先）</h3>
+          <p>ドストエフスキー・トルストイ・チェーホフ・モーパッサンなど、青空文庫収録の外国文学翻訳を一冊にまとめます。日本語訳で、世界の名作を聴けます。価格未定。</p>
+        </div>
+        <div class="card strong">
           <h3>聴く源氏物語</h3>
-          <p>与謝野晶子訳＋谷崎潤一郎訳の2訳聴き比べ。価格は¥980予定。</p>
+          <p>与謝野晶子訳＋谷崎潤一郎訳の2訳聴き比べ。同じ場面を2つの文体で楽しめます。¥980予定。</p>
         </div>
         <div class="card">
           <h3>聴く怪談</h3>
-          <p>小泉八雲・泉鏡花・夢野久作・柳田国男など。価格は¥480予定。</p>
+          <p>小泉八雲・泉鏡花・夢野久作・柳田国男など。秋の夜長に。¥480予定。</p>
         </div>
         <div class="card">
           <h3>聴く時代ミステリー</h3>
-          <p>岡本綺堂・江戸川乱歩を中心に。価格は¥480予定。</p>
-        </div>
-        <div class="card">
-          <h3>そのほかの展開</h3>
-          <p>聴く六法全書、聴く料理など、テーマ別ラインも順次構想中です。</p>
+          <p>岡本綺堂の半七捕物帳・江戸川乱歩の探偵小説を中心に。¥480予定。</p>
         </div>
       </div>
     </section>
 
+    <!-- FAQ -->
     <section class="wrap">
       <h2 class="section-title">よくある質問</h2>
       <div class="faq">
         <details>
           <summary>本当に約2000作品入っていますか？</summary>
-          <p>31作家を中心に、約2000作品規模で楽しめる構成を目指しています。作品種別や作家ごとの収録範囲はアプリ内で分かりやすく案内します。</p>
+          <p>31作家を中心に、約2000作品規模で楽しめる構成を目指しています。作品の種別や作家ごとの収録範囲はアプリ内で分かりやすくご案内します。</p>
         </details>
         <details>
           <summary>無料でどこまで聴けますか？</summary>
-          <p>約50作品をフリーミアム作品として用意しています。短編や随筆は全文無料の作品も多く、長編は中盤までしっかり試せる作品があります。さらに、全作品で冒頭の立ち読みが可能です。</p>
+          <p>約50作品を無料でしっかり楽しめるようにしています。短編・随筆は全文無料の作品も多く、長編は物語の核心に差し掛かるところまで試せます。さらに、全作品で冒頭の立ち読みが可能です。</p>
         </details>
         <details>
-          <summary>『源氏物語』や『三国志』のような大作も試せますか？</summary>
-          <p>はい。『源氏物語』は「桐壺」を全文無料、『三国志』は「序」をすべて読めるなど、大作も入り口から楽しめるようにしています。</p>
+          <summary>読み間違いはありますか？</summary>
+          <p>本アプリはOS標準の読み上げ機能（TTS）を使用しているため、文脈によって読み方が変わる語句を中心に読み間違いが発生する場合があります。独自システムで最大限対策していますが、完全な正確性は保証できません。あらかじめご了承の上お楽しみください。</p>
         </details>
         <details>
           <summary>月額課金ですか？</summary>
-          <p>いいえ。買い切り型です。全作品解放は¥980、作家別パックは¥370です。</p>
+          <p>いいえ。買い切り型です。全作品解放は¥980、作家別パックは¥370です。一度購入すれば永久にお使いいただけます。</p>
         </details>
         <details>
           <summary>作家別パックから全解放へ移れますか？</summary>
-          <p>はい。後から差額アップグレードできる形を想定しています。</p>
+          <p>はい。後から差額でアップグレードできます。好きな作家から入って、ハマったら全解放へ。</p>
+        </details>
+        <details>
+          <summary>オフラインで使えますか？</summary>
+          <p>はい。インストール後はインターネット接続不要で全作品をお楽しみいただけます。地下鉄・機内・電波のない場所でも問題なく動作します。</p>
         </details>
       </div>
     </section>
 
+    <!-- CTA -->
     <section class="wrap cta">
       <h2 class="section-title">31作家・約2000作品を、オフラインで。</h2>
       <p class="section-desc">
