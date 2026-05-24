@@ -191,6 +191,37 @@
       font-size: 14px; box-shadow: var(--shadow);
     }
 
+    .work-picks {
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+    }
+
+    .work-picks h4 {
+      margin: 0 0 10px;
+      font-size: 14px;
+      color: var(--accent);
+    }
+
+    .work-chip-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .work-chip-list li {
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
     .pricing-wrap {
       display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 18px;
     }
@@ -423,7 +454,7 @@
 
       <div class="grid-2">
         <div class="card strong">
-          <h3>Aグループ（全作品収録・18作家）</h3>
+          <h3>Aグループ（全作品収録・17作家）</h3>
           <p style="margin-bottom:14px;">
             各作家のほぼ全作品を収録。作家別パック（¥370）の対象です。
           </p>
@@ -433,7 +464,6 @@
             <li>芥川龍之介</li>
             <li>宮沢賢治</li>
             <li>江戸川乱歩</li>
-            <li>森鴎外</li>
             <li>中島敦</li>
             <li>坂口安吾</li>
             <li>谷崎潤一郎</li>
@@ -447,19 +477,40 @@
             <li>室生犀星</li>
             <li>岡本綺堂</li>
           </ul>
+          <div class="work-picks">
+            <h4>無料で試しやすい代表作</h4>
+            <ul class="work-chip-list">
+              <li>吾輩は猫である</li>
+              <li>坊っちゃん</li>
+              <li>走れメロス</li>
+              <li>人間失格</li>
+              <li>羅生門</li>
+              <li>蜘蛛の糸</li>
+              <li>注文の多い料理店</li>
+              <li>銀河鉄道の夜</li>
+              <li>山月記</li>
+              <li>ごん狐</li>
+              <li>手袋を買いに</li>
+              <li>檸檬</li>
+              <li>刺青</li>
+              <li>瓶詰地獄</li>
+              <li>宮本武蔵</li>
+              <li>三国志</li>
+            </ul>
+          </div>
         </div>
 
         <div class="card">
-          <h3>Bグループ（代表作中心・13作家）</h3>
+          <h3>Bグループ（選集・特例収録・14作家）</h3>
           <p style="margin-bottom:14px;">
-            代表作・主要作品を中心に収録。まずは有名作から気軽に楽しめます。
+            代表作・主要作品を中心に収録。与謝野晶子は、源氏物語・みだれ髪・新字新仮名の評論随筆を扱う特例枠です。
           </p>
           <ul class="author-list">
+            <li>森鴎外</li>
             <li>泉鏡花</li>
             <li>小泉八雲</li>
             <li>北大路魯山人</li>
             <li>海野十三</li>
-            <li>福沢諭吉</li>
             <li>寺田寅彦</li>
             <li>柳田国男</li>
             <li>三木清</li>
@@ -468,7 +519,29 @@
             <li>国木田独歩</li>
             <li>有島武郎</li>
             <li>堀辰雄</li>
+            <li>与謝野晶子</li>
           </ul>
+          <div class="work-picks">
+            <h4>無料で試しやすい代表作</h4>
+            <ul class="work-chip-list">
+              <li>高瀬舟</li>
+              <li>舞姫</li>
+              <li>高野聖</li>
+              <li>夜行巡査</li>
+              <li>耳無芳一の話</li>
+              <li>雪女</li>
+              <li>遠野物語</li>
+              <li>山の人生</li>
+              <li>天災と国防</li>
+              <li>蟹工船</li>
+              <li>武蔵野</li>
+              <li>一房の葡萄</li>
+              <li>だしの取り方</li>
+              <li>風立ちぬ</li>
+              <li>源氏物語</li>
+              <li>みだれ髪</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -547,7 +620,7 @@
         <div class="price-box">
           <h3>作家別パック</h3>
           <div class="price">¥370</div>
-          <div class="price-note">Aグループ18作家が対象・後から全解放へ差額アップグレード対応</div>
+          <div class="price-note">Aグループ17作家が対象・後から全解放へ差額アップグレード対応</div>
           <ul class="bullet">
             <li>漱石パック・太宰パック・芥川パックなど</li>
             <li>まず好きな作家から入りたい人向け</li>
