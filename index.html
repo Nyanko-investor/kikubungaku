@@ -4,192 +4,693 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>聴く文学 | 31作家・約2000作品をオフラインで持ち歩く</title>
+  <title>聴く文学 | 31作家・約2000作品をオフラインで聴く</title>
   <meta
     name="description"
-    content="聴く文学は、31作家・約2000作品を収録した買い切り型の文学アプリです。オフライン再生、広告なし、作家別パック、差額アップグレードに対応。"
+    content="聴く文学は、31作家・約2000作品を収録した買い切り型の文学アプリです。完全オフライン、広告なし、全文無料作品と無料試聴、作家別パック、差額アップグレードに対応。"
   />
   <style>
     :root {
-      --bg: #f6f0e7;
-      --card: #fffaf4;
-      --card-strong: #f4e7d7;
-      --text: #2e261f;
-      --muted: #6e6258;
-      --accent: #6b4f3a;
-      --accent-2: #b08b62;
-      --line: #dfd2c3;
-      --shadow: 0 10px 30px rgba(40, 30, 20, 0.08);
-      --radius: 20px;
-      --max: 1120px;
+      --paper: #fbf7ef;
+      --paper-2: #f1eadf;
+      --ink: #202124;
+      --muted: #63615c;
+      --line: #d8d0c3;
+      --white: #fffdf8;
+      --teal: #115e59;
+      --teal-soft: #dcefed;
+      --wine: #9f1239;
+      --wine-soft: #f5dde4;
+      --gold: #b7791f;
+      --gold-soft: #f4e7c8;
+      --blue: #1d4ed8;
+      --blue-soft: #dbe7ff;
+      --shadow: 0 18px 48px rgba(32, 33, 36, 0.12);
+      --radius: 8px;
+      --max: 1160px;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
         "Yu Gothic UI", "Yu Gothic", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.75;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; border-radius: 16px; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .wrap {
       width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
     }
 
-    header { padding: 24px 0; }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(216, 208, 195, 0.72);
+      background: rgba(251, 247, 239, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
 
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      font-weight: 800;
     }
 
-    .brand-badge {
-      width: 36px; height: 36px;
-      border-radius: 999px;
-      display: grid; place-items: center;
-      background: var(--accent);
-      color: white; font-size: 14px;
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding: 8px 10px;
+      border-radius: var(--radius);
+    }
+
+    .nav-links a:hover {
+      background: var(--paper-2);
+      color: var(--ink);
     }
 
     .hero {
-      padding: 34px 0 56px;
+      position: relative;
+      overflow: hidden;
+      min-height: calc(100svh - 104px);
+      color: var(--paper);
+      background: #202124;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(32, 33, 36, 0.74);
+      z-index: -1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -6% -70px 18%;
+      height: 170px;
+      background: rgba(251, 247, 239, 0.08);
+      transform: rotate(-2deg);
+      z-index: -1;
+    }
+
+    .hero-inner {
+      min-height: calc(100svh - 104px);
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 36px;
+      grid-template-columns: minmax(0, 0.98fr) minmax(330px, 0.7fr);
       align-items: center;
+      gap: 40px;
+      padding: 64px 0 52px;
     }
 
     .eyebrow {
-      display: inline-block;
-      margin-bottom: 14px;
-      padding: 6px 12px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      font-size: 13px;
-      color: var(--muted);
-      background: rgba(255,255,255,0.45);
+      width: fit-content;
+      margin: 0 0 16px;
+      padding: 6px 10px;
+      border: 1px solid rgba(251, 247, 239, 0.32);
+      border-radius: var(--radius);
+      color: #f4e7c8;
+      background: rgba(32, 33, 36, 0.28);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p {
+      margin-top: 0;
     }
 
     h1 {
-      margin: 0 0 16px;
-      font-size: clamp(34px, 6vw, 60px);
-      line-height: 1.12;
-      letter-spacing: -0.04em;
+      max-width: 10.5em;
+      margin-bottom: 18px;
+      font-size: 44px;
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+
+    .hero-product {
+      display: block;
+      margin-bottom: 12px;
+      color: #f4d59a;
+      font-size: 86px;
+      font-weight: 900;
+      line-height: 0.98;
+    }
+
+    .hero-tagline {
+      display: block;
+      font-weight: 800;
     }
 
     .lead {
-      margin: 0 0 24px;
-      font-size: clamp(16px, 2.3vw, 19px);
-      color: var(--muted);
-      max-width: 37em;
+      max-width: 42em;
+      margin-bottom: 26px;
+      color: rgba(251, 247, 239, 0.84);
+      font-size: clamp(16px, 2vw, 19px);
     }
 
     .actions {
-      display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
     }
 
     .btn {
       display: inline-flex;
-      align-items: center; justify-content: center;
-      min-height: 48px; padding: 0 18px;
-      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
       border: 1px solid var(--line);
-      background: white;
-      box-shadow: var(--shadow);
-      font-weight: 700;
+      border-radius: var(--radius);
+      background: var(--white);
+      color: var(--ink);
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(32, 33, 36, 0.14);
     }
 
     .btn.primary {
-      background: var(--accent); color: white; border-color: var(--accent);
+      border-color: var(--gold);
+      background: var(--gold);
+      color: #16130e;
     }
 
-    .subnote { font-size: 14px; color: var(--muted); }
-
-    .hero-card {
-      background: linear-gradient(180deg, #fffdf9, #f3e8da);
-      border: 1px solid var(--line);
-      border-radius: 28px; padding: 20px;
-      box-shadow: var(--shadow);
+    .hero .btn:not(.primary) {
+      border-color: rgba(251, 247, 239, 0.36);
+      background: rgba(251, 247, 239, 0.1);
+      color: var(--paper);
+      box-shadow: none;
     }
 
-    section { padding: 28px 0 44px; }
-
-    .section-title {
-      margin: 0 0 8px;
-      font-size: clamp(24px, 4vw, 34px);
-      line-height: 1.25;
+    .subnote {
+      max-width: 46em;
+      color: rgba(251, 247, 239, 0.68);
+      font-size: 13px;
     }
 
-    .section-desc { margin: 0 0 24px; color: var(--muted); }
-
-    .grid-2, .grid-3, .grid-4 { display: grid; gap: 18px; }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-    }
-
-    .card.strong { background: var(--card-strong); }
-
-    .card h3 { margin: 0 0 8px; font-size: 18px; line-height: 1.35; }
-    .card p { margin: 0; color: var(--muted); font-size: 15px; }
-
-    .mini-metrics {
+    .metrics {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px; margin-top: 20px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 26px;
+      max-width: 720px;
     }
 
     .metric {
-      background: white;
-      border: 1px solid var(--line);
-      border-radius: 16px; padding: 14px 12px;
-      box-shadow: var(--shadow);
+      min-height: 86px;
+      padding: 14px 12px;
+      border: 1px solid rgba(251, 247, 239, 0.22);
+      border-radius: var(--radius);
+      background: rgba(251, 247, 239, 0.1);
     }
 
     .metric .num {
-      font-size: 26px; font-weight: 800;
-      line-height: 1.1; margin-bottom: 4px;
+      margin-bottom: 3px;
+      color: #f4d59a;
+      font-size: 28px;
+      font-weight: 900;
+      line-height: 1.1;
     }
 
-    .metric .label { font-size: 13px; color: var(--muted); }
-
-    .screens {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+    .metric .label {
+      color: rgba(251, 247, 239, 0.78);
+      font-size: 13px;
     }
 
-    .screen-card {
-      background: white; border: 1px solid var(--line);
-      border-radius: 22px; padding: 14px; box-shadow: var(--shadow);
+    .hero-art {
+      display: grid;
+      place-items: center;
+      min-height: 520px;
     }
 
-    .screen-card p { margin: 12px 4px 4px; font-size: 14px; color: var(--muted); }
+    .book-backdrop {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(24, minmax(30px, 1fr));
+      gap: 0;
+      opacity: 0.72;
+      z-index: -2;
+    }
+
+    .book-backdrop span {
+      min-height: 100%;
+      border-left: 1px solid rgba(251, 247, 239, 0.12);
+      border-right: 1px solid rgba(0, 0, 0, 0.22);
+      background: #51321e;
+      box-shadow: inset 0 0 0 999px rgba(0, 0, 0, 0.08);
+    }
+
+    .book-backdrop span:nth-child(3n) {
+      background: #1f5b55;
+    }
+
+    .book-backdrop span:nth-child(4n) {
+      background: #6f2d2d;
+    }
+
+    .book-backdrop span:nth-child(5n) {
+      background: #92671f;
+    }
+
+    .book-backdrop span:nth-child(7n) {
+      background: #273f75;
+    }
+
+    .phone {
+      width: min(330px, 100%);
+      padding: 14px;
+      border: 1px solid rgba(251, 247, 239, 0.34);
+      border-radius: 32px;
+      background: #111214;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.38);
+    }
+
+    .phone-screen {
+      overflow: hidden;
+      min-height: 620px;
+      border-radius: 24px;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .phone-top {
+      padding: 22px 18px 12px;
+      background: var(--teal);
+      color: var(--paper);
+    }
+
+    .phone-title {
+      font-weight: 900;
+      font-size: 22px;
+      line-height: 1.25;
+    }
+
+    .phone-small {
+      margin-top: 5px;
+      color: rgba(251, 247, 239, 0.78);
+      font-size: 12px;
+    }
+
+    .phone-body {
+      padding: 14px;
+    }
+
+    .phone-tab {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      margin-bottom: 14px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .phone-tab span {
+      padding: 7px 4px;
+      border-radius: var(--radius);
+      text-align: center;
+      background: var(--paper-2);
+    }
+
+    .book-row {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .book-cover {
+      width: 42px;
+      height: 58px;
+      border-radius: 5px;
+      background: var(--wine);
+    }
+
+    .book-row:nth-child(3n) .book-cover {
+      background: var(--blue);
+    }
+
+    .book-row:nth-child(4n) .book-cover {
+      background: var(--gold);
+    }
+
+    .book-name {
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .book-meta {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .now-playing {
+      margin-top: 16px;
+      padding: 12px;
+      border-radius: var(--radius);
+      background: var(--teal-soft);
+      color: #143c39;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    section {
+      padding: 62px 0;
+    }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      display: inline-block;
+      margin-bottom: 9px;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .section-title {
+      margin-bottom: 10px;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    .section-desc {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .grid-2,
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(32, 33, 36, 0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      font-size: 18px;
+      line-height: 1.42;
+    }
+
+    .card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .card.teal {
+      border-color: #b9dbd7;
+      background: var(--teal-soft);
+    }
+
+    .card.wine {
+      border-color: #e6bdc9;
+      background: var(--wine-soft);
+    }
+
+    .card.gold {
+      border-color: #e3cf98;
+      background: var(--gold-soft);
+    }
+
+    .reason-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .reason {
+      min-height: 214px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .reason:nth-child(1),
+    .reason:nth-child(4) {
+      border-color: #b9dbd7;
+      background: var(--teal-soft);
+    }
+
+    .reason:nth-child(2),
+    .reason:nth-child(5) {
+      border-color: #e3cf98;
+      background: var(--gold-soft);
+    }
+
+    .reason:nth-child(3),
+    .reason:nth-child(6) {
+      border-color: #d4ddf8;
+      background: var(--blue-soft);
+    }
+
+    .reason h3 {
+      margin-bottom: 8px;
+      font-size: 17px;
+      line-height: 1.38;
+    }
+
+    .reason p {
+      margin-bottom: 0;
+      color: #4d4b47;
+      font-size: 14px;
+    }
+
+    .compare {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .quote-panel {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .quote-panel h2 {
+      margin-bottom: 12px;
+      font-size: clamp(26px, 4vw, 38px);
+      line-height: 1.2;
+    }
+
+    .quote-panel p {
+      color: rgba(251, 247, 239, 0.78);
+    }
+
+    .quote-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .player-mock {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: 0 12px 30px rgba(32, 33, 36, 0.08);
+    }
+
+    .screenshot-placeholder {
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--muted);
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .screenshot-placeholder span {
+      display: block;
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .screen-audio {
+      margin-top: 14px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--paper);
+    }
+
+    .screen-audio h3 {
+      margin-bottom: 6px;
+      font-size: 17px;
+    }
+
+    .screen-audio p {
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .audio-compare {
+      display: grid;
+      gap: 10px;
+    }
+
+    .audio-group {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 248, 0.68);
+    }
+
+    .audio-group.primary {
+      border-color: #b9dbd7;
+      background: var(--teal-soft);
+    }
+
+    .listen-label {
+      margin-bottom: 6px;
+      color: var(--teal);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .listen-text {
+      min-height: 52px;
+      margin-bottom: 12px;
+      color: var(--ink);
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .audio-slots {
+      display: grid;
+      gap: 8px;
+    }
+
+    .audio-slot {
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 10px;
+      border: 1px dashed var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 248, 0.7);
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .audio-slot span {
+      color: var(--ink);
+    }
+
+    .audio-slot code {
+      font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .lineup-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 18px;
+    }
 
     .author-list {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 10px 18px; margin: 0; padding: 0; list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
     .author-list li {
-      padding: 10px 12px; background: white;
-      border: 1px solid var(--line); border-radius: 14px;
-      font-size: 14px; box-shadow: var(--shadow);
+      min-height: 40px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 14px;
+      font-weight: 700;
     }
 
     .work-picks {
@@ -199,9 +700,9 @@
     }
 
     .work-picks h4 {
-      margin: 0 0 10px;
+      margin-bottom: 10px;
+      color: var(--teal);
       font-size: 14px;
-      color: var(--accent);
     }
 
     .work-chip-list {
@@ -214,251 +715,580 @@
     }
 
     .work-chip-list li {
-      padding: 6px 10px;
+      padding: 6px 9px;
       border: 1px solid var(--line);
-      border-radius: 999px;
-      background: rgba(255,255,255,0.72);
-      color: var(--muted);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.74);
+      color: #4d4b47;
       font-size: 13px;
-      line-height: 1.4;
+      line-height: 1.35;
+    }
+
+    .free-band {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .free-layout {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .free-number {
+      padding: 28px;
+      border-radius: var(--radius);
+      background: var(--teal);
+      color: var(--paper);
+    }
+
+    .free-number strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #f4d59a;
+      font-size: 36px;
+      line-height: 1.18;
     }
 
     .pricing-wrap {
-      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 18px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
     }
 
     .price-box {
-      padding: 22px; border-radius: 22px;
-      border: 1px solid var(--line); box-shadow: var(--shadow); background: white;
+      padding: 26px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
     }
 
     .price-box.featured {
-      background: linear-gradient(180deg, #fff9f1, #f2e3cf);
+      border-color: #b9dbd7;
+      background: var(--teal-soft);
     }
 
     .price {
-      font-size: 42px; font-weight: 800; line-height: 1; margin: 8px 0 12px;
+      margin: 6px 0 12px;
+      font-size: clamp(42px, 7vw, 68px);
+      font-weight: 900;
+      line-height: 1;
     }
 
-    .price-note { font-size: 14px; color: var(--muted); margin-bottom: 14px; }
+    .price-note {
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-    .bullet { margin: 0; padding-left: 18px; color: var(--muted); font-size: 15px; }
-    .bullet li + li { margin-top: 6px; }
+    .bullet {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .bullet li + li {
+      margin-top: 6px;
+    }
 
     .flow {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      counter-reset: flow;
     }
 
-    .flow .step {
-      background: white; border: 1px solid var(--line);
-      border-radius: 18px; padding: 18px; box-shadow: var(--shadow);
+    .step {
+      counter-increment: flow;
+      padding: 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
     }
 
-    .step .step-no {
-      display: inline-block; margin-bottom: 10px;
-      font-size: 12px; font-weight: 700; color: var(--accent);
-      border: 1px solid var(--line); border-radius: 999px;
-      padding: 4px 8px; background: rgba(255,255,255,0.6);
+    .step::before {
+      content: "STEP " counter(flow);
+      display: inline-block;
+      margin-bottom: 10px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 900;
     }
 
-    .step h4 { margin: 0 0 6px; font-size: 16px; }
-    .step p { margin: 0; color: var(--muted); font-size: 14px; }
+    .step h3 {
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
 
-    .faq { display: grid; gap: 12px; }
+    .step p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .screens {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .screen {
+      min-height: 470px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #151619;
+      color: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .screen-inner {
+      min-height: 386px;
+      padding: 16px;
+      border-radius: var(--radius);
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .screen h3 {
+      margin: 14px 2px 4px;
+      font-size: 16px;
+    }
+
+    .screen p {
+      margin: 0 2px;
+      color: rgba(251, 247, 239, 0.72);
+      font-size: 14px;
+    }
+
+    .shelf-row,
+    .detail-line,
+    .play-line {
+      border-radius: var(--radius);
+      background: var(--paper-2);
+    }
+
+    .shelf-row {
+      height: 54px;
+      margin-bottom: 10px;
+    }
+
+    .detail-line {
+      height: 18px;
+      margin-bottom: 10px;
+    }
+
+    .detail-line.short {
+      width: 62%;
+    }
+
+    .play-line {
+      height: 12px;
+      margin-top: 12px;
+    }
+
+    .highlight {
+      background: var(--gold-soft);
+    }
+
+    .faq {
+      display: grid;
+      gap: 10px;
+    }
 
     .faq details {
-      background: var(--card); border: 1px solid var(--line);
-      border-radius: 16px; padding: 16px 18px; box-shadow: var(--shadow);
-    }
-
-    .faq summary { cursor: pointer; font-weight: 700; }
-    .faq p { margin: 10px 0 0; color: var(--muted); }
-
-    .cta { text-align: center; padding: 56px 0 80px; }
-
-    footer { padding: 24px 0 40px; color: var(--muted); font-size: 14px; }
-
-    /* 免責ボックス */
-    .disclaimer {
-      background: rgba(255,255,255,0.5);
+      padding: 16px 18px;
       border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 18px 22px;
-      margin-top: 20px;
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.8;
+      border-radius: var(--radius);
+      background: var(--white);
     }
 
-    @media (max-width: 960px) {
-      .hero, .grid-2, .grid-3, .grid-4,
-      .screens, .pricing-wrap, .flow,
-      .mini-metrics, .author-list {
+    .faq summary {
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .faq p {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .disclaimer {
+      margin-top: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 253, 248, 0.7);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta {
+      padding: 70px 0 86px;
+      background: var(--ink);
+      color: var(--paper);
+      text-align: center;
+    }
+
+    .cta .section-desc {
+      margin-inline: auto;
+      color: rgba(251, 247, 239, 0.76);
+    }
+
+    footer {
+      padding: 24px 0 38px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1080px) {
+      .reason-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 920px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .hero-inner,
+      .compare,
+      .lineup-grid,
+      .free-layout,
+      .pricing-wrap {
         grid-template-columns: 1fr;
       }
-      .hero { padding-top: 20px; }
+
+      .hero-inner {
+        min-height: auto;
+        padding: 48px 0 44px;
+      }
+
+      .hero-art {
+        min-height: auto;
+      }
+
+      .phone {
+        width: min(310px, 90vw);
+        transform: none;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .hero-product {
+        font-size: 64px;
+      }
+
+      .phone-screen {
+        min-height: 520px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .screens,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics,
+      .author-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 620px) {
+      .metrics,
+      .author-list,
+      .reason-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .book-backdrop {
+        grid-template-columns: repeat(10, minmax(34px, 1fr));
+      }
+
+      h1 {
+        font-size: 29px;
+      }
+
+      .hero-product {
+        font-size: 52px;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap">
-      <div class="brand">
-        <div class="brand-badge">聴</div>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="聴く文学 トップへ">
+        <span class="brand-mark">聴</span>
         <span>聴く文学</span>
-      </div>
+      </a>
+      <nav class="nav-links" aria-label="ページ内メニュー">
+        <a href="#free">無料体験</a>
+        <a href="#lineup">ラインナップ</a>
+        <a href="#pricing">価格</a>
+        <a href="#faq">FAQ</a>
+      </nav>
     </div>
   </header>
 
-  <main>
-    <!-- ヒーロー -->
-    <section class="wrap hero">
-      <div>
-        <div class="eyebrow">31作家・約2000作品収録の買い切り型文学アプリ</div>
-        <h1>日本の名作2000冊を、<br>ポケットに入れて歩く。</h1>
-        <p class="lead">
-          インストールするだけで、31作家・約2000作品がすべて端末に入ります。
-          通信不要・広告なし。月額課金もありません。
-          通勤中に、寝る前に、旅先で。一度手に入れたら、どこでも、いつまでも。
-        </p>
-
-        <div class="actions">
-          <a class="btn primary" href="#pricing">価格を見る</a>
-          <a class="btn" href="#lineup">ラインナップを見る</a>
-        </div>
-
-        <p class="subnote">
-          ※ 本アプリはお使いのスマートフォン標準の読み上げ機能（TTS）を使用しています。
-          文脈によって読み方が変わる語句を中心に、一部読み間違いが発生する場合があります。
-        </p>
-
-        <div class="mini-metrics">
-          <div class="metric">
-            <div class="num">31</div>
-            <div class="label">作家</div>
-          </div>
-          <div class="metric">
-            <div class="num">約2000</div>
-            <div class="label">作品</div>
-          </div>
-          <div class="metric">
-            <div class="num">¥980</div>
-            <div class="label">全解放・買い切り</div>
-          </div>
-          <div class="metric">
-            <div class="num">¥370</div>
-            <div class="label">作家別パック</div>
-          </div>
-        </div>
+  <main id="top">
+    <section class="hero">
+      <div class="book-backdrop" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
+      <div class="wrap hero-inner">
+        <div>
+          <p class="eyebrow">31作家・約2000作品収録 / 完全オフライン</p>
+          <h1>
+            <span class="hero-product">聴く文学</span>
+            <span class="hero-tagline">日本の名作を、眠る前にも、移動中にも。</span>
+          </h1>
+          <p class="lead">
+            聴く文学は、青空文庫の名作をスマートフォンで聴くための買い切り型アプリです。
+            作品データは端末に入るので、電波の届かない場所でも再生できます。
+            人物名やルビの読み崩れをできるだけ減らし、耳から入りやすい読書体験を目指しました。
+          </p>
 
-      <div class="hero-card">
-        <img
-          src="https://placehold.co/720x900?text=%E8%81%B4%E3%81%8F%E6%96%87%E5%AD%A6+App+Preview"
-          alt="聴く文学アプリのプレビュー"
-        />
+          <div class="actions">
+            <a class="btn primary" href="#free">無料で聴ける範囲を見る</a>
+            <a class="btn" href="#pricing">価格を見る</a>
+          </div>
+
+          <p class="subnote">
+            人間やAIの録音朗読ではなく、OS標準TTSによる読み上げです。端末やOSにより声質・聞こえ方が異なります。
+          </p>
+
+          <div class="metrics" aria-label="アプリ概要">
+            <div class="metric">
+              <div class="num">31</div>
+              <div class="label">作家</div>
+            </div>
+            <div class="metric">
+              <div class="num">約2000</div>
+              <div class="label">作品規模</div>
+            </div>
+            <div class="metric">
+              <div class="num">71作品</div>
+              <div class="label">無料体験の対象</div>
+            </div>
+            <div class="metric">
+              <div class="num">¥980</div>
+              <div class="label">全解放</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-art" aria-label="聴く文学アプリの画面イメージ">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="phone-top">
+                <div class="phone-title">聴く文学</div>
+                <div class="phone-small">本棚 / 無料体験 / 再生中</div>
+              </div>
+              <div class="phone-body">
+                <div class="phone-tab">
+                  <span>名作</span>
+                  <span>作家</span>
+                  <span>続き</span>
+                </div>
+                <div class="book-row">
+                  <div class="book-cover"></div>
+                  <div>
+                    <div class="book-name">銀河鉄道の夜</div>
+                    <div class="book-meta">宮沢賢治 / 無料区間あり</div>
+                  </div>
+                </div>
+                <div class="book-row">
+                  <div class="book-cover"></div>
+                  <div>
+                    <div class="book-name">吾輩は猫である</div>
+                    <div class="book-meta">夏目漱石 / 長編も入口から</div>
+                  </div>
+                </div>
+                <div class="book-row">
+                  <div class="book-cover"></div>
+                  <div>
+                    <div class="book-name">走れメロス</div>
+                    <div class="book-meta">太宰治 / 全文無料</div>
+                  </div>
+                </div>
+                <div class="book-row">
+                  <div class="book-cover"></div>
+                  <div>
+                    <div class="book-name">高瀬舟</div>
+                    <div class="book-meta">森鴎外 / 全文無料</div>
+                  </div>
+                </div>
+                <div class="now-playing">再生中: 注文の多い料理店</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="wrap">
-      <h2 class="section-title">聴く文学が選ばれる6つの理由</h2>
-      <p class="section-desc">
-        大量収録・完全オフライン・広告なしの買い切り・誤読対策・睡眠導入・BGM対応。
-        「名作を聴く」という体験に、本気で向き合いました。
-      </p>
+      <div class="section-head">
+        <span class="section-kicker">WHY IT WORKS</span>
+        <h2 class="section-title">聴く文学でできる6つのこと</h2>
+        <p class="section-desc">
+          大量収録、完全オフライン、広告なしの買い切り、誤読対策、睡眠導入、BGM対応。
+          「名作を聴く」ために必要なことを、最初からまとめています。
+        </p>
+      </div>
 
-      <div class="grid-4">
-        <div class="card">
-          <h3>インストールで全作品入り</h3>
-          <p>作品を一冊ずつ探してダウンロードする手間はありません。入れた瞬間から、31作家・約2000作品がすべて手元にあります。</p>
-        </div>
-        <div class="card">
-          <h3>完全オフライン対応</h3>
-          <p>通信が不要なので、地下鉄・機内・山の中でも再生できます。データ通信量もかかりません。</p>
-        </div>
-        <div class="card">
+      <div class="reason-grid">
+        <article class="reason">
+          <h3>入れた瞬間から全作品入り</h3>
+          <p>作品を一冊ずつ探してダウンロードする手間はありません。31作家・約2000作品規模の本棚を端末に持ち歩けます。</p>
+        </article>
+        <article class="reason">
+          <h3>電波がなくても再生</h3>
+          <p>地下鉄、機内、山の中でも使えます。移動中に通信量を気にせず、好きな作品を開けます。</p>
+        </article>
+        <article class="reason">
           <h3>広告なし・買い切り</h3>
-          <p>朗読の途中で広告が入ることはありません。¥980の全作品買い切り、または¥370の作家別パックで、広告なしの読書体験をお楽しみいただけます。</p>
-        </div>
-        <div class="card">
-          <h3>誤読を減らす独自エンジン</h3>
-          <p>固有名詞の一貫した読み、作家が意図したルビの正確な再現、文脈によって読み方が変わる語句への対応など、原文の意図を損なわない読み上げを実現するため、独自の読み上げ最適化システムを開発しました。</p>
-        </div>
+          <p>朗読の途中に広告が入りません。全作品解放、または作家別パックを一度購入すれば使い続けられます。</p>
+        </article>
+        <article class="reason">
+          <h3>読み間違いを減らす工夫</h3>
+          <p>固有名詞、作家指定のルビ、文脈で読みが変わる語句を、作品ごとにできるだけ聞きやすく整えています。</p>
+        </article>
+        <article class="reason">
+          <h3>寝る前にも聴きやすい</h3>
+          <p>目を閉じたまま名作の世界へ入れます。長編も続きから再生できるので、少しずつ進められます。</p>
+        </article>
+        <article class="reason">
+          <h3>手持ちの音楽をBGMに</h3>
+          <p>スマートフォン内の音楽を流しながら朗読を楽しめます。自分の読書時間に合わせて調整できます。</p>
+        </article>
       </div>
-      <div class="grid-2" style="margin-top:18px;">
-        <div class="card">
-          <h3>睡眠導入にも</h3>
-          <p>穏やかな読み上げ音声をBGMと組み合わせれば、眠りにつく前のひとときにぴったりです。目を閉じたまま、名作の世界に入っていけます。</p>
+    </section>
+
+    <section class="wrap">
+      <div class="compare">
+        <div class="quote-stack">
+          <div class="quote-panel">
+            <h2>名作を、耳から入りやすく。</h2>
+            <p>
+              青空文庫の本文をそのままTTSに読ませるだけでは、昔の文章ほど読み間違いが起きやすくなります。
+              聴く文学では、人物名・地名・ルビなどをできる限り整え、耳から楽しみやすい形にしています。
+            </p>
+          </div>
+          <div class="player-mock" aria-label="坊っちゃんの再生画面イメージ">
+            <div class="screenshot-placeholder">
+              坊っちゃんの再生画面スクリーンショット
+              <span>ここに実際のアプリ画面を掲載予定</span>
+            </div>
+            <div class="screen-audio">
+              <h3>この画面の音声サンプル（準備中）</h3>
+              <p>スクリーンショットの本文と同じ箇所を、Android/iOSのTTSで聞き比べられるようにする予定です。メインは聴く文学で整えた読み、比較用に本文そのままの読みも載せます。</p>
+              <div class="audio-compare">
+                <div class="audio-group primary">
+                  <div class="listen-label">聴く文学で整えた読み</div>
+                  <div class="listen-text">きよが坊っちゃんを見送った。</div>
+                  <div class="audio-slots" aria-label="聴く文学で整えた音声サンプル枠">
+                    <div class="audio-slot"><span>Android TTS</span><code>音声準備中</code></div>
+                    <div class="audio-slot"><span>iOS TTS</span><code>音声準備中</code></div>
+                  </div>
+                </div>
+                <div class="audio-group">
+                  <div class="listen-label">比較用: 本文そのまま</div>
+                  <div class="listen-text">清が坊っちゃんを見送った。</div>
+                  <div class="audio-slots" aria-label="本文そのままの音声サンプル枠">
+                    <div class="audio-slot"><span>Android TTS</span><code>音声準備中</code></div>
+                    <div class="audio-slot"><span>iOS TTS</span><code>音声準備中</code></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <h3>お手持ちの音楽をBGMに</h3>
-          <p>スマートフォン内の音楽をBGMとして流しながら朗読を楽しめます。自分だけの読書空間をつくれます。</p>
+        <div class="grid-2">
+          <div class="card teal">
+            <h3>人名・地名が揺れにくい</h3>
+            <p>登場人物の名前や地名が場面ごとに違って聞こえにくくならないよう、作品ごとに調整しています。たとえば『坊っちゃん』の「清」は、そのままだと「きよ」「きよし」「せい」と揺れやすいため、人物名として「きよ」と聞こえるように整えています。</p>
+          </div>
+          <div class="card gold">
+            <h3>ルビを活かして聴ける</h3>
+            <p>青空文庫に付いているルビを読み上げにも反映し、原文の雰囲気をできるだけ損なわないようにしています。</p>
+          </div>
+          <div class="card wine">
+            <h3>無料体験で聴き心地を確認</h3>
+            <p>全文無料の短編や長編の入口から、購入前に声の聞こえ方や作品との相性を確かめられます。</p>
+          </div>
+          <div class="card">
+            <h3>端末の声で、軽く持ち歩く</h3>
+            <p>録音朗読とは違い、たくさんの作品をまとめてオフラインで楽しめます。声質は端末側の設定で調整できます。</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 差別化 -->
-    <section class="wrap">
-      <h2 class="section-title">既存の朗読アプリとの違い</h2>
-      <div class="grid-2">
-        <div class="card">
-          <h3>「清」はずっと「きよ」と読む</h3>
+    <section class="free-band" id="free">
+      <div class="wrap free-layout">
+        <div class="free-number">
+          <strong>まずは無料体験</strong>
+          <h2>全文無料と、長編の入口を用意。</h2>
           <p>
-            一般的な読み上げアプリでは『坊っちゃん』の「清」が、場面によって「きよ」「きよし」「せい」とバラバラに読まれることがあります。
-            聴く文学では、登場人物の名前が最後まで一貫して読まれるよう、約2000作品分の台本データを独自に整備しています。
+            71作品に無料で聴ける範囲を用意しています。短編には全文無料のものもあり、長編も冒頭から物語の雰囲気を確かめられます。
           </p>
         </div>
-        <div class="card">
-          <h3>都度ダウンロード不要</h3>
-          <p>
-            多くの朗読アプリは作品ごとにダウンロードが必要です。
-            聴く文学はインストール時にすべての作品データが端末に入るため、「聴きたいと思ったらすぐ再生できる」が実現できています。
-          </p>
-        </div>
-      </div>
-
-      <div class="disclaimer">
-        <strong>【読み上げ（TTS）に関するご案内】</strong><br>
-        本アプリはお使いのスマートフォンに標準搭載されている読み上げ機能（OS標準TTS）を使用しています。
-        青空文庫のテキストをより自然な日本語で発音させるため、独自の解析システム（一部AIによるルビ推論を含む）を用いて読み上げ用の台本データを整備しています。
-        ただし、文脈によって読み方が変わる語句を中心に読み間違いが発生する場合があります。
-        人間のナレーターによる録音とは異なる点をご了承の上お楽しみください。
-        お使いの端末・OSバージョン・TTSエンジンによって、読み上げの印象が異なる場合があります。
-      </div>
-    </section>
-
-    <!-- カラオケ・目次・あらすじ -->
-    <section class="wrap">
-      <h2 class="section-title">読みながら聴ける、探しやすい</h2>
-      <div class="grid-3">
-        <div class="card">
-          <h3>カラオケ式ハイライト</h3>
-          <p>読み上げ中の箇所がリアルタイムで強調表示されます。耳で聴きながら目でも追えるので、聴き逃しても文字で確認できます。</p>
-        </div>
-        <div class="card">
-          <h3>目次・あらすじ・タグ</h3>
-          <p>各作品にはあらすじとタグを用意。「怪奇」「恋愛」「短編」などのタグで、気分に合った作品をすぐに探せます。</p>
-        </div>
-        <div class="card">
-          <h3>続きから再生</h3>
-          <p>前回聴いた位置を記憶しています。長編を少しずつ読み進めても、どこまで聴いたか迷いません。</p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>全文無料の名作</h3>
+            <p>『羅生門』『蜘蛛の糸』『走れメロス』『注文の多い料理店』『山月記』『檸檬』『ごん狐』『手袋を買いに』など。</p>
+          </div>
+          <div class="card">
+            <h3>長編も入口から</h3>
+            <p>『吾輩は猫である』『坊っちゃん』『人間失格』『銀河鉄道の夜』『風立ちぬ』『蟹工船』などを途中まで試せます。</p>
+          </div>
+          <div class="card">
+            <h3>全作品に冒頭試聴</h3>
+            <p>対象71作品とは別に、全作品で冒頭の立ち読み・試聴を用意。買う前に文体と読み上げを確認できます。</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ラインナップ -->
     <section class="wrap" id="lineup">
-      <h2 class="section-title">ラインナップ</h2>
-      <p class="section-desc">
-        国民的な文豪から、知る人ぞ知る作家まで。31作家を収録しています。
-      </p>
+      <div class="section-head">
+        <span class="section-kicker">LINEUP</span>
+        <h2 class="section-title">国民的名作から、少しマニアックな作家まで。</h2>
+        <p class="section-desc">
+          収録対象は31作家。Aグループは作家別パックの対象、Bグループは代表作・主要作品を中心にした選集です。
+        </p>
+      </div>
 
-      <div class="grid-2">
-        <div class="card strong">
+      <div class="lineup-grid">
+        <article class="card teal">
           <h3>Aグループ（全作品収録・17作家）</h3>
-          <p style="margin-bottom:14px;">
-            各作家のほぼ全作品を収録。作家別パック（¥370）の対象です。
-          </p>
+          <p>各作家のほぼ全作品を収録。作家別パック（¥370）の対象です。</p>
           <ul class="author-list">
             <li>夏目漱石</li>
             <li>太宰治</li>
@@ -479,7 +1309,7 @@
             <li>岡本綺堂</li>
           </ul>
           <div class="work-picks">
-            <h4>無料で試しやすい代表作</h4>
+            <h4>代表作の例</h4>
             <ul class="work-chip-list">
               <li>吾輩は猫である</li>
               <li>坊っちゃん</li>
@@ -499,13 +1329,11 @@
               <li>三国志</li>
             </ul>
           </div>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
           <h3>Bグループ（選集・特例収録・14作家）</h3>
-          <p style="margin-bottom:14px;">
-            代表作・主要作品を中心に収録。与謝野晶子は、源氏物語・みだれ髪・新字新仮名の評論随筆を扱う特例枠です。
-          </p>
+          <p>代表作・主要作品を中心に収録。与謝野晶子は、源氏物語・みだれ髪・新字新仮名の評論随筆を扱う特例枠です。</p>
           <ul class="author-list">
             <li>森鴎外</li>
             <li>泉鏡花</li>
@@ -523,7 +1351,7 @@
             <li>与謝野晶子</li>
           </ul>
           <div class="work-picks">
-            <h4>無料で試しやすい代表作</h4>
+            <h4>代表作の例</h4>
             <ul class="work-chip-list">
               <li>高瀬舟</li>
               <li>舞姫</li>
@@ -543,221 +1371,194 @@
               <li>みだれ髪</li>
             </ul>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <!-- 無料でも読める -->
-    <section class="wrap">
-      <h2 class="section-title">無料でも、しっかり読めます</h2>
-      <p class="section-desc">
-        約50作品を無料でしっかり楽しめるようにしています。短編・随筆は全文無料の作品も多く、
-        長編も物語の核心に差し掛かるところまで試せます。
-      </p>
-
-      <div class="grid-3">
-        <div class="card">
-          <h3>全文無料の名作</h3>
-          <p>
-            『羅生門』『蜘蛛の糸』『走れメロス』『注文の多い料理店』『山月記』
-            『檸檬』『ごん狐』『手袋を買いに』『高瀬舟』『耳なし芳一』
-            『雪女』など、まずは名作をそのまま楽しめます。
-          </p>
-        </div>
-        <div class="card">
-          <h3>長編も途中まで無料</h3>
-          <p>
-            『吾輩は猫である』『坊っちゃん』『人間失格』『銀河鉄道の夜』
-            『風立ちぬ』『蟹工船』などは、物語の核心に差し掛かるところまで無料で試せます。
-          </p>
-        </div>
-        <div class="card">
-          <h3>冒頭の立ち読み＋無料作品の二段構え</h3>
-          <p>
-            全作品で冒頭の立ち読みが可能。さらに選ばれた約50作品は全文または中盤まで無料。
-            まず体験してから、好きな作家や全解放へ進めます。
-          </p>
-        </div>
-      </div>
-
-      <div class="grid-2" style="margin-top:18px;">
-        <div class="card">
-          <h3>無料で試せる作品の例</h3>
-          <p>
-            『羅生門』『走れメロス』『檸檬』『山月記』『注文の多い料理店』
-            『刺青』『瓶詰地獄』『ごん狐』『手袋を買いに』『堕落論』など。
-          </p>
-        </div>
-        <div class="card">
-          <h3>大作も入口からハマれる</h3>
-          <p>
-            『三国志』は「序」を全文無料、『宮本武蔵』は冒頭から世界に入れるなど、
-            大作も入り口から存分に試せます。
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 課金設計 -->
     <section class="wrap" id="pricing">
-      <h2 class="section-title">シンプルな課金設計</h2>
-      <p class="section-desc">
-        いろんな作家を楽しみたい人は全解放へ。好きな作家から入りたい人は作家別パックへ。
-        後から差額でアップグレードもできます。
-      </p>
+      <div class="section-head">
+        <span class="section-kicker">PRICE</span>
+        <h2 class="section-title">月額ではなく、買い切り。</h2>
+        <p class="section-desc">
+          幅広く楽しみたい人は全作品解放へ。好きな作家から入りたい人は、Aグループの作家別パックから始められます。
+        </p>
+      </div>
 
       <div class="pricing-wrap">
-        <div class="price-box featured">
+        <article class="price-box featured">
           <h3>全作品解放</h3>
           <div class="price">¥980</div>
-          <div class="price-note">買い切り・31作家・約2000作品・完全オフライン・広告なし・永久有効</div>
+          <div class="price-note">買い切り / 31作家 / 約2000作品 / 完全オフライン / 広告なし</div>
           <ul class="bullet">
-            <li>いろいろな作家を幅広く楽しみたい人向け</li>
-            <li>作家別パックを複数買うよりお得</li>
-            <li>Audibleの月額料金より安く、2000作品が永久に楽しめます</li>
+            <li>さまざまな作家を横断して読みたい人向け</li>
+            <li>作家別パックを複数買うより割安</li>
+            <li>一度購入すれば、収録作品をまとめて楽しめます</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="price-box">
+        <article class="price-box">
           <h3>作家別パック</h3>
           <div class="price">¥370</div>
-          <div class="price-note">Aグループ17作家が対象・後から全解放へ差額アップグレード対応</div>
+          <div class="price-note">Aグループ17作家が対象 / 後から全解放へ差額アップグレード対応</div>
           <ul class="bullet">
-            <li>漱石パック・太宰パック・芥川パックなど</li>
-            <li>まず好きな作家から入りたい人向け</li>
-            <li>全作品解放へは差額でいつでも移行できます</li>
+            <li>漱石、太宰、芥川など好きな作家から始められます</li>
+            <li>まず1人の作家をじっくり聴きたい人向け</li>
+            <li>全作品解放へは差額で移行できます</li>
           </ul>
-        </div>
+        </article>
       </div>
     </section>
 
-    <!-- 使い始めの流れ -->
     <section class="wrap">
-      <h2 class="section-title">使い始めの流れ</h2>
+      <div class="section-head">
+        <span class="section-kicker">FLOW</span>
+        <h2 class="section-title">無料体験から、好きな作家へ広げる。</h2>
+      </div>
       <div class="flow">
         <div class="step">
-          <div class="step-no">STEP 1</div>
-          <h4>無料で体験する</h4>
-          <p>無料で試せる作品や立ち読みで、まずはアプリの読み上げと使い心地を試します。</p>
+          <h3>無料体験を聴く</h3>
+          <p>代表作で読み上げの雰囲気と操作感を確認します。</p>
         </div>
         <div class="step">
-          <div class="step-no">STEP 2</div>
-          <h4>好きな作家から入る</h4>
-          <p>まずは好きな作家だけ¥370で解放。漱石、太宰、芥川などから始められます。</p>
+          <h3>好きな作家を解放</h3>
+          <p>まずは漱石、太宰、芥川など、お好きな作家から始められます。</p>
         </div>
         <div class="step">
-          <div class="step-no">STEP 3</div>
-          <h4>他の作家も気になってくる</h4>
-          <p>1人の作家を読み終えると、同じ時代の別の作家や、違うジャンルも試したくなります。</p>
+          <h3>気になる作品へ移る</h3>
+          <p>気に入った作品を入口に、他の作家や新しいジャンルへ広げられます。</p>
         </div>
         <div class="step">
-          <div class="step-no">STEP 4</div>
-          <h4>¥980で全部解放</h4>
-          <p>差額アップグレードで、31作家・約2000作品をまとめて楽しめます。</p>
+          <h3>全作品を持ち歩く</h3>
+          <p>気に入ったら全解放へ。オフラインの文学本棚になります。</p>
         </div>
       </div>
     </section>
 
-    <!-- アプリ画面 -->
     <section class="wrap">
-      <h2 class="section-title">アプリ画面</h2>
-      <p class="section-desc">
-        本棚、作品ページ、再生画面。大量収録でも迷わず、名作へすぐ入れる導線を目指しました。
-      </p>
-
+      <div class="section-head">
+        <span class="section-kicker">APP</span>
+        <h2 class="section-title">大量収録でも、迷わず再生へ。</h2>
+        <p class="section-desc">
+          本棚、作品詳細、再生画面。探す、選ぶ、聴くまでの流れを短くしました。
+        </p>
+      </div>
       <div class="screens">
-        <div class="screen-card">
-          <img
-            src="https://placehold.co/520x1000?text=%E6%9C%AC%E6%A3%9A%E7%94%BB%E9%9D%A2"
-            alt="本棚画面"
-          />
-          <p>31作家・約2000作品を一覧できる本棚画面</p>
-        </div>
-        <div class="screen-card">
-          <img
-            src="https://placehold.co/520x1000?text=%E4%BD%9C%E5%93%81%E8%A9%B3%E7%B4%B0"
-            alt="作品詳細画面"
-          />
-          <p>あらすじ・タグ・立ち読み導線を整理した作品ページ</p>
-        </div>
-        <div class="screen-card">
-          <img
-            src="https://placehold.co/520x1000?text=%E5%86%8D%E7%94%9F%E7%94%BB%E9%9D%A2"
-            alt="再生画面"
-          />
-          <p>カラオケ式ハイライトで耳でも目でも追える再生画面</p>
-        </div>
+        <article class="screen">
+          <div class="screen-inner">
+            <div class="shelf-row highlight"></div>
+            <div class="shelf-row"></div>
+            <div class="shelf-row"></div>
+            <div class="shelf-row"></div>
+            <div class="shelf-row"></div>
+          </div>
+          <h3>本棚画面</h3>
+          <p>作家・作品を一覧し、無料体験や続きから再生へ進めます。</p>
+        </article>
+        <article class="screen">
+          <div class="screen-inner">
+            <div class="detail-line"></div>
+            <div class="detail-line short"></div>
+            <div class="detail-line"></div>
+            <div class="detail-line"></div>
+            <div class="detail-line short"></div>
+            <div class="shelf-row highlight"></div>
+          </div>
+          <h3>作品詳細</h3>
+          <p>あらすじ、タグ、試聴、購入導線を整理しています。</p>
+        </article>
+        <article class="screen">
+          <div class="screen-inner">
+            <div class="play-line"></div>
+            <div class="play-line"></div>
+            <div class="play-line highlight"></div>
+            <div class="play-line"></div>
+            <div class="play-line"></div>
+            <div class="shelf-row highlight" style="margin-top:42px;"></div>
+          </div>
+          <h3>再生画面</h3>
+          <p>カラオケ式ハイライトで、聴いている箇所を目でも追えます。</p>
+        </article>
       </div>
     </section>
 
-    <!-- シリーズ展開 -->
     <section class="wrap">
-      <h2 class="section-title">今後のシリーズ展開</h2>
-      <p class="section-desc">
-        聴く文学を母艦として、ジャンル・作品群ごとのシリーズも展開予定です。
-      </p>
-
+      <div class="section-head">
+        <span class="section-kicker">SERIES</span>
+        <h2 class="section-title">今後のシリーズ展開</h2>
+        <p class="section-desc">
+          ジャンルや作品群ごとに楽しめる、関連シリーズも展開予定です。
+        </p>
+      </div>
       <div class="grid-2">
-        <div class="card strong">
-          <h3> 聴く世界文学</h3>
-          <p>ドストエフスキー・トルストイ・チェーホフ・モーパッサンなど、青空文庫収録の外国文学翻訳を一冊にまとめます。日本語訳で、世界の名作を聴けます。¥980予定。</p>
+        <div class="card teal">
+          <h3>聴く世界文学</h3>
+          <p>ドストエフスキー、トルストイ、チェーホフ、モーパッサンなど、外国文学の名作翻訳をまとめます。</p>
         </div>
-        <div class="card strong">
+        <div class="card gold">
           <h3>聴く源氏物語</h3>
-          <p>与謝野晶子訳＋谷崎潤一郎訳の2訳聴き比べ。同じ場面を2つの文体で楽しめます。¥980予定。</p>
+          <p>紫式部の原文に加え、与謝野晶子訳と谷崎潤一郎訳も収録予定。同じ場面を原文と現代語訳で聴き比べられます。</p>
         </div>
         <div class="card">
           <h3>聴く怪談</h3>
-          <p>小泉八雲・泉鏡花・夢野久作・柳田国男など。秋の夜長に。¥480予定。</p>
+          <p>小泉八雲、泉鏡花、夢野久作、柳田国男など、夜に聴きたい怪談・幻想文学を中心に。</p>
         </div>
         <div class="card">
           <h3>聴く時代ミステリー</h3>
-          <p>岡本綺堂の半七捕物帳・江戸川乱歩の探偵小説を中心に。¥480予定。</p>
+          <p>岡本綺堂の半七捕物帳、江戸川乱歩の探偵小説などを中心にしたミステリー系の展開です。</p>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="wrap">
-      <h2 class="section-title">よくある質問</h2>
+    <section class="wrap" id="faq">
+      <div class="section-head">
+        <span class="section-kicker">FAQ</span>
+        <h2 class="section-title">よくある質問</h2>
+      </div>
       <div class="faq">
         <details>
           <summary>本当に約2000作品入っていますか？</summary>
-          <p>31作家を中心に、約2000作品規模で楽しめる構成を目指しています。作品の種別や作家ごとの収録範囲はアプリ内で分かりやすくご案内します。</p>
+          <p>31作家を中心に、約2000作品規模で楽しめる構成を目指しています。作品の種別や作家ごとの収録範囲はアプリ内で分かりやすく案内します。</p>
         </details>
         <details>
           <summary>無料でどこまで聴けますか？</summary>
-          <p>約50作品を無料でしっかり楽しめるようにしています。短編・随筆は全文無料の作品も多く、長編は物語の核心に差し掛かるところまで試せます。さらに、全作品で冒頭の立ち読みが可能です。</p>
+          <p>71作品に無料で聴ける範囲を用意しています。全文無料の短編もあれば、長編の入口や一部を聴ける作品もあります。さらに、全作品で冒頭試聴もできます。</p>
         </details>
         <details>
           <summary>読み間違いはありますか？</summary>
-          <p>本アプリはOS標準の読み上げ機能（TTS）を使用しているため、文脈によって読み方が変わる語句を中心に読み間違いが発生する場合があります。独自システムで最大限対策していますが、完全な正確性は保証できません。あらかじめご了承の上お楽しみください。</p>
+          <p>OS標準TTSを使うため、文脈によって読み方が変わる語句を中心に読み間違いが発生する場合があります。作品ごとにできるだけ聞きやすく整えていますが、完全な正確性は保証できません。</p>
+        </details>
+        <details>
+          <summary>翻訳作品も入っていますか？</summary>
+          <p>聴く文学本編は日本文学を中心とし、翻訳作品は原則として別ラインで扱います。世界文学系は今後の派生シリーズとして展開予定です。</p>
         </details>
         <details>
           <summary>月額課金ですか？</summary>
-          <p>いいえ。買い切り型です。全作品解放は¥980、作家別パックは¥370です。一度購入すれば永久にお使いいただけます。</p>
-        </details>
-        <details>
-          <summary>作家別パックから全解放へ移れますか？</summary>
-          <p>はい。後から差額でアップグレードできます。好きな作家から入って、ハマったら全解放へ。</p>
+          <p>いいえ。買い切り型です。全作品解放は¥980、作家別パックは¥370です。一度購入すれば継続課金なしで使えます。</p>
         </details>
         <details>
           <summary>オフラインで使えますか？</summary>
-          <p>はい。インストール後はインターネット接続不要で全作品をお楽しみいただけます。地下鉄・機内・電波のない場所でも問題なく動作します。</p>
+          <p>はい。インストール後は作品データを端末内に持つため、電波の届かない場所でも再生できます。</p>
         </details>
+      </div>
+
+      <div class="disclaimer">
+        <strong>読み上げ（TTS）に関するご案内</strong><br>
+        本アプリは、お使いのスマートフォンに標準搭載されている読み上げ機能を使用します。
+        青空文庫のテキストをより自然に発音させるため、独自の解析システムと一部AIによるルビ推論を用いて読み上げ用データを整備しています。
+        ただし、人間のナレーターによる録音とは異なり、端末・OS・TTSエンジンによって読み上げの印象が変わる場合があります。
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="wrap cta">
-      <h2 class="section-title">31作家・約2000作品を、オフラインで。</h2>
-      <p class="section-desc">
-        まずは無料作品から。気に入ったら、好きな作家だけでも、全部まとめてでも。
-      </p>
-
-      <div class="actions" style="justify-content:center;">
-        <a class="btn primary" href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer">App Storeで見る</a>
-        <a class="btn" href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">Google Playで見る</a>
+    <section class="cta">
+      <div class="wrap">
+        <h2 class="section-title">31作家・約2000作品を、オフラインで。</h2>
+        <p class="section-desc">
+          まずは無料体験から。気に入ったら、好きな作家だけでも、全部まとめてでも。
+        </p>
+        <div class="actions" style="justify-content:center;">
+          <a class="btn primary" href="https://apps.apple.com/" target="_blank" rel="noopener noreferrer">App Storeで見る</a>
+          <a class="btn" href="https://play.google.com/store" target="_blank" rel="noopener noreferrer">Google Playで見る</a>
+        </div>
       </div>
     </section>
   </main>
