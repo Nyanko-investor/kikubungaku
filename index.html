@@ -877,24 +877,15 @@
     .screens {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      gap: 32px;
+      align-items: start;
     }
 
     .screen {
-      min-height: 470px;
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #151619;
-      color: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .screen-inner {
-      min-height: 386px;
-      padding: 16px;
-      border-radius: var(--radius);
-      background: var(--paper);
+      width: 100%;
+      max-width: 330px;
+      min-width: 0;
+      margin: 0 auto;
       color: var(--ink);
     }
 
@@ -905,7 +896,7 @@
 
     .screen p {
       margin: 0 2px;
-      color: rgba(251, 247, 239, 0.72);
+      color: var(--muted);
       font-size: 14px;
     }
 
@@ -1231,9 +1222,9 @@
         </figure>
         <figure class="app-screenshot">
           <div class="app-screen-crop">
-            <img src="assets/screenshots/detail-botchan-light.jpg" width="1080" height="2520" loading="lazy" decoding="async" alt="『坊っちゃん』の作品情報。夏目漱石、初出年1906年、あらすじ、作品のテーマと注意事項が表示されたライトテーマの画面。">
+            <img src="assets/screenshots/detail-ginga-light.jpg" width="1080" height="2520" loading="lazy" decoding="async" alt="『銀河鉄道の夜』の作品情報。宮沢賢治、あらすじ、作品のテーマと「再生開始」ボタンが表示されたライトテーマの画面。">
           </div>
-          <figcaption>『坊っちゃん』のあらすじ・作品情報</figcaption>
+          <figcaption>『銀河鉄道の夜』のあらすじ・作品情報</figcaption>
         </figure>
       </div>
     </section>
@@ -1248,12 +1239,12 @@
               そのまま読み上げると不自然に聞こえることがあるため、作品ごとのルビや読みをできるだけ反映しています。
             </p>
           </div>
-          <div class="player-mock" aria-label="坊っちゃんの読書・再生画面">
+          <div class="player-mock" aria-label="銀河鉄道の夜の読書・再生画面">
             <figure class="app-screenshot">
               <div class="app-screen-crop">
-                <img src="assets/screenshots/reader-botchan-light.jpg" width="1080" height="2520" loading="lazy" decoding="async" alt="聴く文学のライトテーマ。『坊っちゃん』の本文と、読み上げの一時停止・再生速度の操作部分が見える読書画面。">
+                <img src="assets/screenshots/reader-ginga-light.jpg" width="1080" height="2520" loading="lazy" decoding="async" alt="『銀河鉄道の夜』の読書・再生画面。読み上げ中の段落が背景色と濃い文字で強調され、前後の文章や一時停止・再生速度の操作部分が見えます。">
               </div>
-              <figcaption>『坊っちゃん』の読書・再生画面</figcaption>
+              <figcaption>『銀河鉄道の夜』の読書・再生画面</figcaption>
             </figure>
             <div class="screen-audio">
               <h3>音声サンプル（近日掲載予定）</h3>
@@ -1489,36 +1480,22 @@
       </div>
       <div class="screens">
         <article class="screen">
-          <div class="screen-inner">
-            <div class="shelf-row highlight"></div>
-            <div class="shelf-row"></div>
-            <div class="shelf-row"></div>
-            <div class="shelf-row"></div>
-            <div class="shelf-row"></div>
+          <div class="app-screen-crop">
+            <img src="assets/screenshots/authors-light.jpg" width="1080" height="2520" loading="lazy" decoding="async" alt="聴く文学の本棚画面。夏目漱石、太宰治、芥川龍之介など、31人の作家を表紙から選べます。">
           </div>
           <h3>本棚画面</h3>
           <p>作家や作品を一覧し、全文無料・一部無料・冒頭試聴の作品を探せます。</p>
         </article>
         <article class="screen">
-          <div class="screen-inner">
-            <div class="detail-line"></div>
-            <div class="detail-line short"></div>
-            <div class="detail-line"></div>
-            <div class="detail-line"></div>
-            <div class="detail-line short"></div>
-            <div class="shelf-row highlight"></div>
+          <div class="app-screen-crop">
+            <img src="assets/screenshots/detail-ginga-light.jpg" width="1080" height="2520" loading="lazy" decoding="async" alt="『銀河鉄道の夜』の作品詳細。あらすじや作品のテーマと、画面下の「再生開始」ボタンが表示されています。">
           </div>
           <h3>作品詳細</h3>
-          <p>あらすじ、タグ、無料範囲、購入後に聴ける内容を確認できます。</p>
+          <p>あらすじやタグを確認し、「再生開始」からそのまま聴き始められます。</p>
         </article>
         <article class="screen">
-          <div class="screen-inner">
-            <div class="play-line"></div>
-            <div class="play-line"></div>
-            <div class="play-line highlight"></div>
-            <div class="play-line"></div>
-            <div class="play-line"></div>
-            <div class="shelf-row highlight" style="margin-top:42px;"></div>
+          <div class="app-screen-crop">
+            <img src="assets/screenshots/reader-ginga-light.jpg" width="1080" height="2520" loading="lazy" decoding="async" alt="『銀河鉄道の夜』の再生画面。読み上げ中の段落が前後の文章と区別できるように強調され、一時停止や再生速度の操作が見えます。">
           </div>
           <h3>再生画面</h3>
           <p>カラオケ風ハイライトで、いま聴いている箇所を目でも追えます。</p>
